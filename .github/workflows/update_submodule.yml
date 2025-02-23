@@ -22,12 +22,12 @@ jobs:
 
       - name: Update submodule
         run: |
-          git submodule update --remote
+          git submodule update --remote --checkout
 
       # Step 4: Check for changes and push
       - name: Check for changes and push
         run: |
-          git diff --exit-code || (git commit -am "Update submodule" && git push origin main) 
+          git diff --exit-code || (git commit -am "Update submodules" && git push origin main) 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
 
